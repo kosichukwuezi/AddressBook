@@ -4,24 +4,31 @@ import java.util.ArrayList;
  *
  */
 public class AddressBook {
-   private final ArrayList<BuddyInfo> buddies;
+
+   private ArrayList<BuddyInfo> myBuddies;
 
    public AddressBook(){
-       buddies = new ArrayList<>();
+
+       myBuddies = new ArrayList<>();
    }
 
-   public void addBuddy(BuddyInfo buddy){
-       buddies.add(buddy);
+   public void addBuddy(BuddyInfo aBuddy){
+       if (aBuddy != null){
+           myBuddies.add(aBuddy);
+       }
    }
 
-   public void removeBuddy(BuddyInfo buddy){
-       buddies.remove(buddy);
+   public BuddyInfo removeBuddy (int index){
+       if(index >= 0 && index < myBuddies.size() ){
+           myBuddies.remove(index);
+       }
+       return null;
    }
    static void main(String[] args) {
        BuddyInfo buddy = new BuddyInfo("Tom", "Carleton", "613");
        AddressBook addressBook = new AddressBook();
        addressBook.addBuddy(buddy);
-       addressBook.removeBuddy(buddy);
+       addressBook.removeBuddy( 0);
    }
 
 
